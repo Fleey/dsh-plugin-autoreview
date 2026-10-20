@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-autoreview
+      name: 'dsh-plugin-autoreview'
+      config: {}

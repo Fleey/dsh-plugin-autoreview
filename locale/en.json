@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Smart Command Review",
+    "description": "Adds an Auto review permission mode that checks each tool call with the model and reasoning effort you choose, asking you only for high-risk or sensitive actions."
+  }
+}

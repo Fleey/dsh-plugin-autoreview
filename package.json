@@ -1,0 +1,65 @@
+{
+  "name": "dsh-plugin-autoreview",
+  "version": "0.1.0",
+  "description": "Risk-based auto review for DeepSeek Harness tool calls: high-risk or sensitive calls ask for confirmation, with a settings page for the reviewer model and reasoning effort.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis-plugin",
+    "auto-review"
+  ],
+  "license": "MIT",
+  "author": "Fleey",
+  "homepage": "https://github.com/Fleey/dsh-plugin-autoreview#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fleey/dsh-plugin-autoreview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fleey/dsh-plugin-autoreview/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./policy": "./policy.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "policy.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\"",
+    "check": "node --check index.js && node --check policy.js && node --check client.js && node --test \"test/**/*.test.js\""
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-api-remotes"
+      ]
+    }
+  }
+}
